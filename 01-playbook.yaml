@@ -9,13 +9,4 @@
       ansible.builtin.debug:
         msg: "Hye from task2 of play1"
 
-    - name: Play2     # name of the play
-      hosts: all
-      tasks:
-        - name: Task1 of play2  # name of the task
-          ansible.builtin.debug:
-          msg: "Hye from task1 of play2"
-  
-        - name: Task2 of play2  # name of the task
-          ansible.builtin.debug:
-           msg: "****Hye from task2 of play2*****"  
+   
