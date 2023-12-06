@@ -1,8 +1,13 @@
-- name: Play1     # name of the play
+name: Play1     # name of the play
   hosts: all
   tasks:
     - name: Task1 of Play1  # name of task
-     
+      ansible.builtin.debug:
+      msg: "Hye from Task1 of play1"
+
+    - name: Task2 of Play1  # name of task
+      ansible.builtin.debug:
+      msg: "Hye from Task2 of play1"
 
 - 
 
