@@ -2,7 +2,7 @@
 - name: Demo on variables usage
   hosts: all
   vars:
-    URL: play.google.com  # Declaring variable at playlevel, all the tasks of this play inherits this value.
+    URL: play.google.com  # Declaring variable at playlevel, all the tasks of this play inherits this value. (Global Var)
   tasks:
     - name: Printing the variable
       ansible.builtin.debug:
