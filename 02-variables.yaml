@@ -16,7 +16,7 @@
 
     - name: Printing the Variable from Command Line
       ansible.builtin.debug:
-        msg: Value of the xyz is {{XYZ}}  # In Bash, we print a variable by using ${var}, but here in YAML we use {{var}}
+        msg: Value of the xyz is {{XYZ}}  # before 02-variable we add -e XYZ=xyz.google.com, then it prints, otherwise it throws error as undeclared
 
     #- name: Printing the Variable from Command Line
      # ansible.builtin.debug:
