@@ -3,6 +3,8 @@
   hosts: all
   vars:
     URL: play.google.com  # Declaring variable at playlevel, all the tasks of this play inherits this value. (Global Var)
+  vars_files:
+    - "{{ENV}}.yaml"  
   tasks:
     - name: Printing the variable
       ansible.builtin.debug:
@@ -22,9 +24,9 @@
      # ansible.builtin.debug:
       # msg: Value of the xyz is {{XYZ}}
 
-    #- name: Printing ENV Specific Values
-     # ansible.builtin.debug:   # Debug is the module to print something
-      # msg: "Instance Type is {{INSTANCE_TYPE}} and disk size is {{DISK_SIZE}}"
+    - name: Printing ENV Specific Values
+      ansible.builtin.debug:   # Debug is the module to print something
+       msg: "Instance Type is {{INSTANCE_TYPE}} and disk size is {{DISK_SIZE}}"
 
       # - name: Printing the unknown variable
       #   ansible.builtin.debug:
