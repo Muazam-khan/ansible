@@ -1,0 +1,3 @@
+# Facts : Facts are nothing but the properties of the VM's that are mentioned in the supplied inventory file.
+
+# Ansible collects all the facts before the start of the playbook and how do I know the list of facts gathered it ?
