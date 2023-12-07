@@ -8,5 +8,5 @@
       register: OUT    #Output will be register in a variable called OUT, which can be used in any of the tasks of the play
     - name: Printing the System uptime
       ansible.builtin.debug:
-        msg: "uptime is {{OUT}}" 
+        msg: "uptime is {{OUT.stdout}}" 
 
