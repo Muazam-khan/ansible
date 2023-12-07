@@ -10,6 +10,6 @@
   hosts: all
   # gather_facts: false by default gather_facts is true
   tasks:
-     -name: Printing the OS
-      ansible.builtin.debug:
-        msg: OS distribution is {{ansible_distribution}} 
+   - name: Printing the OS
+     ansible.builtin.debug:
+       msg: OS distribution is {{ansible_distribution}} 
