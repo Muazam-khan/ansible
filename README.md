@@ -127,3 +127,10 @@ Pip is a python package installer
 ...
     $ ansible-playbook -i inv all -e ansible_user=centos -e ansible_password=DevOps321 playBookName.yaml 
 
+### When to use quotes  fro variables in an Ansible playbook ?
+...
+   Ansible supports quotes for Variables!
+
+   When you are just using the variable only, then you do not need to place quotes instead use it directly {{ENV}}
+
+   When your variables in between the lines, then ensure you place them in quotes instrad of using directly "Name of the environment is {{ENV}}"
