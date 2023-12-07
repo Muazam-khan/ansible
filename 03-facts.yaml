@@ -5,3 +5,11 @@
 ## Following command gathers and displays all the facts about VMs before the start of Playbook
 
 ###  ansible all -i inv  -e ansible_user=centos  -e ansible_password=DevOps321 -m gather_facts
+
+- name: Demo on facts
+  hosts: all
+  # gather_facts: false by default gather_facts is true
+  tasks:
+     -name: Printing the OS
+      ansible.builtin.debug:
+        msg: OS distribution is {{ansible_distribution}} 
