@@ -14,9 +14,9 @@
       vars:          # Declaring variable at task level : Local variables
         URL: task.google.com
 
-    #- name: Printing the Variable from Command Line
-     # ansible.builtin.debug:
-      # msg: Value of the xyz is {{XYZ}}  # In Bash, we print a variable by using ${var}, but here in YAML we use {{var}}
+    - name: Printing the Variable from Command Line
+      ansible.builtin.debug:
+        msg: Value of the xyz is {{XYZ}}  # In Bash, we print a variable by using ${var}, but here in YAML we use {{var}}
 
     #- name: Printing the Variable from Command Line
      # ansible.builtin.debug:
