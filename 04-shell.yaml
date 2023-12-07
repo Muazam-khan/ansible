@@ -1,0 +1,8 @@
+# Usage of shell module is strictly restricted unless you don't have a relevant module in ANSIBLE COLLECTIONS
+# SHELL Module helps us to run the exact shell commands.
+- name: Demo on using shell commands
+  hosts: all
+  tasks:
+    - name: Running uptime command
+      ansible.builtin.shell: uptime
+      
