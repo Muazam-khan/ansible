@@ -8,7 +8,7 @@
 
 - name: Demo on facts
   hosts: all
-  # gather_facts: false by default gather_facts is true
+  # u can make  it false to avoid machines spending tim on gather facts, but if u mk if false, it wont give u those details if u need gather_facts: false by default gather_facts is true
   tasks:
    - name: Printing the OS
      ansible.builtin.debug:
@@ -16,5 +16,5 @@
 
    - name: Printing the Mac Address
      ansible.builtin.debug:
-       msg: MAC address is {{ansible_default_ipv4.macaddress}} 
+       msg: MAC address is {{ansible_default_ipv4.macaddress}} # u hv 500 dev machines,mngr wants u to restart all ubuntu 18 dev machines, u go extract facts, put a condition and in less than 5 min u can run all machines
          
