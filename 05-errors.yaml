@@ -1,0 +1,11 @@
+# By default , if any of the task fails in a playbook, the sub-sequent tasks won't be executed.
+- name: Demo on errors
+  hosts: all
+  tasks:
+    - name: Check Tomcat is runnin gor not
+      ansible.builtin.shell: ps -ef | grep java | grep -v grep
+      register: OUT
+
+    - name: Run the shipping
+      ansible.builtin.debug:
+        msg: shipping is up   
