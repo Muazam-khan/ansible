@@ -13,3 +13,8 @@
    - name: Printing the OS
      ansible.builtin.debug:
        msg: OS distribution is {{ansible_distribution}} 
+
+   - name: Printing the Mac Address
+     ansible.builtin.debug:
+       msg: MAC address is {{ansible_default_ipv4.macaddress}} 
+         
