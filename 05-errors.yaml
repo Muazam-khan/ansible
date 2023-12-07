@@ -2,7 +2,7 @@
 - name: Demo on errors
   hosts: all
   tasks:
-    - name: Check Tomcat is runnin gor not
+    - name: Check Tomcat is running or not  # since this task fails, next task shipping wont run
       ansible.builtin.shell: ps -ef | grep java | grep -v grep
       register: OUT
 
