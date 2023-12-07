@@ -14,7 +14,7 @@
   tasks:
     - name: Task1 of Play2  # name of task
       ansible.builtin.debug:
-      msg: "Hye from Task1 of play2"
+      msg: "Hye from Task1 of play2 is"
 
 - 
 
