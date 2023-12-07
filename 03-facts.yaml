@@ -1,3 +1,7 @@
 # Facts : Facts are nothing but the properties of the VM's that are mentioned in the supplied inventory file.
 
-# Ansible collects all the facts before the start of the playbook and how do I know the list of facts gathered it ?
+# Ansible collects all the facts before the start of the playbook and how do I know the list of facts gathered by it ?
+
+## Following command gathers and displays all the facts about VMs before the start of Playbook
+
+###  ansible all -i inv  -e ansible_user=centos  -e ansible_password=DevOps321 -m gather_facts
