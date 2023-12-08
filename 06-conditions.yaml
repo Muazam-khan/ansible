@@ -13,7 +13,7 @@
         msg: OS Distribution is {{ansible_distribution}}
       when: ansible_distribution == "Ubuntu"  
 
-    - name: Run this action
+    - name: Run this action when action is true
       ansible.builtin.debug:
         msg: Action is true
       when: action   # we declared action as a variable at the top, it will be exec if val is true, if condition is false
