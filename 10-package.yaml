@@ -1,7 +1,7 @@
 # Package module is going to install the package and this works irrespective of the flavour of linux.
 - name: Demo on using package module
   hosts: all
-  #become: true
+  become: true
   tasks:
     - name: Installing Nginx
       ansible.builtin.package:
