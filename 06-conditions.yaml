@@ -1,7 +1,7 @@
 - name: Demo on Conditions
   hosts: all
   vars:
-    action: true  # action is a variable and its value is true
+    action: false  # action is a variable and its value is true
   tasks:
     - name: Run this task when the distribution is Centos only
       ansible.builtin.debug:
