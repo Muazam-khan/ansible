@@ -5,6 +5,7 @@
     - name: Check Tomcat is running or not  # since this task fails, next task shipping wont run
       ansible.builtin.shell: ps -ef | grep java | grep -v grep
       register: OUT
+      ignore_errors: true # irrespective of the result task will excecute
 
     - name: Run the shipping
       ansible.builtin.debug:
