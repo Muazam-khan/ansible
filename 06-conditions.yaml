@@ -1,7 +1,7 @@
 - name: Demo on Conditions
   hosts: all
   vars:
-    action: true
+    action: true  # action is a variable and its value is true
   tasks:
     - name: Run this task when the distribution is Centos only
       ansible.builtin.debug:
@@ -16,5 +16,4 @@
     - name: Run this action
       ansible.builtin.debug:
         msg: Action is true
-      when: action 
-           
+      when: action   # we declared action as a variable at the top, global variable
