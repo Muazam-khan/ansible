@@ -10,3 +10,5 @@
         - 300
         - 400
         - 500   
+
+        # with_item is also a loop keyword but is deprecated now, true till 2.4 version
