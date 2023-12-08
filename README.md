@@ -134,3 +134,34 @@ Pip is a python package installer
    When you are just using the variable only, then you do not need to place quotes instead use it directly {{ENV}}
 
    When your variables in between the lines, then ensure you place them in quotes instrad of using directly "Name of the environment is {{ENV}}"
+
+   Ansible always suggests to organise the files, tasks and variables in a standard format using ROLES.
+
+     > Roles play a very important role in Ansible
+     
+     
+  ### Role directory structure 
+
+ An Ansible role has a defined directory structure with eight main standard directories. You must include at least one of these directories in each role. You can omit any directories the role does not use. For example:
+
+...
+
+roles/
+    frontend/             # this hierarchy represents a "role"
+        tasks/            #
+            main.yml      #  <-- tasks file can include smaller files if warranted
+        handlers/         #
+            main.yml      #  <-- handlers file
+        templates/        #  <-- files for use with the template resource
+            ntp.conf.j2   #  <------- templates end in .j2
+        files/            #
+            bar.txt       #  <-- files for use with the copy resource
+            foo.sh        #  <-- script files for use with the script resource
+        vars/             #
+            main.yml      #  <-- variables associated with this role
+        defaults/         #
+            main.yml      #  <-- default lower priority variables for this role
+        meta/             #
+            main.yml      #  <-- role dependencies
+            
+...            
