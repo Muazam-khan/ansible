@@ -1,5 +1,5 @@
 - name: Demo on Loops
-  hosts: 
+  hosts: all
   tasks:
     - name: Demo on using Loops
       ansible.builtin.debug:
