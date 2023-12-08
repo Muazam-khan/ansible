@@ -1,1 +1,29 @@
 # Tahs help you to run the tasks with tag of your choice
+- name: Demo on tags
+  hosts: all
+  tasks:
+    - name: Installing frontend
+      ansible.builtin.debug:
+        msg: Installing frontend
+
+    - name: Starting frontend
+      ansible.builtin.debug:
+        msg: Starting frontend  
+
+    - name: Installing DB
+      ansible.builtin.debug:
+        msg: Installing DB 
+
+    - name: Starting DB
+      ansible.builtin.debug:
+        msg: Starting DB 
+
+    - name: Installing Tomcat
+      ansible.builtin.debug:
+        msg: Installing Tomcat 
+
+    - name: Starting Tomcat
+      ansible.builtin.debug:
+        msg: Starting Tomcat                    
+
+
