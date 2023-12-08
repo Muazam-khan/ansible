@@ -7,3 +7,10 @@
       ansible.builtin.package:
         name: nginx
         state: present # prsent state means install, absent state means uninstall, latest state means upgrade to latest
+
+    - name: Install the latest version of Apache and MariaDB
+      ansible.builtin.package:
+        name:
+          - httpd
+          - mariadb-server
+        state: latest    
