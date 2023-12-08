@@ -6,9 +6,9 @@
     - name: Run this task when the distribution is Centos only
       ansible.builtin.debug:
         msg: OS Distribution is {{ansible_distribution}}
-      when ansible_distribution == "CentOS"  
+      when: ansible_distribution == "CentOS"  
 
     - name: Run this task when the distribution is Ubuntu only
       ansible.builtin.debug:
         msg: OS Distribution is {{ansible_distribution}}
-      when ansible_distribution == "Ubuntu"    
+      when: ansible_distribution == "Ubuntu"    
