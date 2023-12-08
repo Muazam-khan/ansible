@@ -15,5 +15,5 @@
 
     - name: Run this action
       ansible.builtin.debug:
-        msg: Action is true
-      when: action   # we declared action as a variable at the top, global variable
+        msg: Action is false
+      when: action   # we declared action as a variable at the top, it will be exec if val is true
