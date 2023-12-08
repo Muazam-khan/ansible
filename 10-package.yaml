@@ -1,4 +1,4 @@
-# Package module is going to install the package and this works irrespective of the flavour of linux.
+# Package module is going to install,remove,update the package and this works irrespective of the flavour of linux.
 - name: Demo on using package module
   hosts: all
   become: true
