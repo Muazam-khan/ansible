@@ -5,7 +5,7 @@
     - name: Installing frontend
       ansible.builtin.debug:
         msg: Installing frontend
-      tags: frontend
+      tags: frontend   # tagging the task
 
     - name: Starting frontend
       ansible.builtin.debug:
