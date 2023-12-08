@@ -1,0 +1,8 @@
+# Demo on copying the files to remote servers
+- name: Demo on File copying
+  hosts: all
+  tasks:
+    - name: Copying the file
+      ansible.builtin.copy:
+        src: systemd.service # Location of the file on the machine where you're running this script
+        dest: /home/centos/systemd.service   # Location of the file where you want to copy this to remote server.
