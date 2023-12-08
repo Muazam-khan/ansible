@@ -1,6 +1,6 @@
 - name: Demo on Privilege Escalation
   hosts: all
-  become: yes  # become yes means becoming root user, max privilege, runs playbook as root user/sudo
+  become: yes  # become yes means becoming root user, max privilege, runs playbook as root user/sudo, all the tasks will be executed as root user
   tasks:
     - name: Running id command # to confirm if i became root or not
       ansible.builtin.shell: id  # id means whoami in shell , SHELL module won't offer the output by default on screen, if you want you can register the output.
