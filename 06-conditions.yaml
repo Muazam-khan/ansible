@@ -18,7 +18,7 @@
         msg: Action is true
       when: action   # we declared action as a variable at the top, it will be exec if val is true, if condition is false
                      # it wont be executed
-    - name: Run this action when action is declared
+    - name: Run this action when action is not defined
       ansible.builtin.debug:
-        msg: Action is defined
-      when: action is defined                
+        msg: Action is undefined
+      when: action is undefined                
