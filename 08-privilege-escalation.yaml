@@ -9,3 +9,5 @@
     - name: Printing the User Details
       ansible.builtin.debug:
         msg: "username is {{OUT.stdout}}"   
+
+        # become_user: userName is the command if within a root user playbook u want to run certain tasks without root or as a particular user of your choice because become: yes makes all tasks with root privilege. 
