@@ -1,0 +1,9 @@
+# Package module is going to install the package and this works irrespective of the flavour of linux.
+- name: Demo on using package module
+  hosts: all
+  become: true
+  tasks:
+    - name: Installing Nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present # prsent state means install, absent state means uninstall, latest state means upgrade to latest
