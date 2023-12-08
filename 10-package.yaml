@@ -13,4 +13,11 @@
         name:
           - httpd
           - mariadb-server
-        state: latest    
+        state: latest  
+
+    - name: Remove the latest version of Apache and MariaDB
+      ansible.builtin.package:
+        name:
+          - httpd
+          - mariadb-server
+        state: absent      
