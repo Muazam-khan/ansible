@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: Demo on using Loops
-      ansible.builtin.debug:
+      ansible.builtin.debug:  # Ansible Print Module
         msg: "Value is {{item}}" # item is a key word, each entry is called item and will be picked on each iteration
       loop:
         - 100
