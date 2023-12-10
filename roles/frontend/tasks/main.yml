@@ -18,3 +18,8 @@
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent        # absent means uninstall/delete, where present state means install/create
+
+- name: Copying the {{COMPONENT}}
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static # Location of the file on the machine where you're running this script
+    dest: /usr/share/nginx/html     
