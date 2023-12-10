@@ -30,7 +30,7 @@
     src: roboshop.conf # Location of the file on the machine where you're running this script
     dest: /etc/nginx/default.d/roboshop.conf    # 
 
-- name: Restarting the "{{COMPONENT}}" Service
+- name: Restarting the frontend Service
   ansible.builtin.systemd_service:
     name: nginx.service
     state: restarted
