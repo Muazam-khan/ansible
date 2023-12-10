@@ -21,5 +21,5 @@
 
 - name: Copying the {{COMPONENT}}
   ansible.builtin.copy:
-    src: /tmp/frontend-main/static # Location of the file on the machine where you're running this script
-    dest: /usr/share/nginx/html     
+    src: /tmp/frontend-main/static/ # Location of the file on the machine where you're running this script
+    dest: /usr/share/nginx/html/    # 
