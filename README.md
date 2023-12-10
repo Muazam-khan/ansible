@@ -149,19 +149,19 @@ Pip is a python package installer
 roles/
     frontend/             # this hierarchy represents a "role"
         tasks/            #
-            main.yml      #  <-- tasks file can include smaller files if warranted
+            main.yml      #  <-- tasks file can include smaller files if warranted # all tasks related to frontend will be placed in this mail.yml
         handlers/         #
             main.yml      #  <-- handlers file
         templates/        #  <-- files for use with the template resource
             ntp.conf.j2   #  <------- templates end in .j2
         files/            #
-            bar.txt       #  <-- files for use with the copy resource
+            bar.txt       #  <-- files for use with the copy resource # all the files that belong to frontend will be placed here
             foo.sh        #  <-- script files for use with the script resource
         vars/             #
-            main.yml      #  <-- variables associated with this role
+            main.yml      #  <-- variables associated with this role # all variable which frontend uses will be placed here
         defaults/         #
             main.yml      #  <-- default lower priority variables for this role
         meta/             #
             main.yml      #  <-- role dependencies
-            
+
 ...            
