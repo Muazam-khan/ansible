@@ -6,3 +6,14 @@
       ansible.builtin.copy:
         src: systemd.service # Location of the file on the machine where you're running this script
         dest: /home/centos/systemd.service   # Location of the file where you want to copy this to remote server.
+
+    - name: Extract foo.tgz into /var/lib/foo
+      ansible.builtin.unarchive:
+        src: foo.tgz    # src file is on the machine where you're running ansible.
+        dest: /var/lib/foo   # On remote server, files are going to be copied.
+
+    - name: Unarchive a file that needs to be downloaded (added in 2.0)
+      ansible.builtin.unarchive:
+        src: https://example.com/example.zip
+        dest: /usr/local/bin
+        remote_src: yes     
