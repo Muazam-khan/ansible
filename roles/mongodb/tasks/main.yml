@@ -27,12 +27,12 @@
     dest: /tmp
     remote_src: yes  
 
-- name: Injecting User Schema
+- name: Injecting Users & Catalogue Schema
   community.mongodb.mongodb_shell: # our mongo db version does not mandate the use of username and password so we dont need it    
-    file: "/tmp/mongodb-main/users.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes 
+  loop:
+    - Users
+    - catalogue 
 
-- name: Injecting Catalogue Schema
-  community.mongodb.mongodb_shell: # our mongo db version does not mandate the use of username and password so we dont need it    
-    file: "/tmp/mongodb-main/catalogue.js"
-    idempotent: yes             
+            
