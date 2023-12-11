@@ -32,7 +32,7 @@
     file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes 
   loop:
-    - Users
+    - users
     - catalogue 
 
             
