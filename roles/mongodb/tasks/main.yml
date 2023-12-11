@@ -1,0 +1,5 @@
+- name: Configuring the {{COMPONENT}} Repo
+  ansible.builtin.copy:
+    src: mongo.repo # Location of the file on the machine where you're running this script
+    dest: /etc/yum.repos.d/mongodb.repo    # 
+    remote_src: yes 
