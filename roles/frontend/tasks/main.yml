@@ -23,7 +23,7 @@
   ansible.builtin.copy:
     src: /tmp/frontend-main/static/ # Location of the file on the machine where you're running this script
     dest: /usr/share/nginx/html/    # 
-    remote_src: yes  # since file was extracted from remote server so we need to say remote server yes, otherwise it fails
+    remote_src: yes  # if the source file is on a remote server then say remote source, yes
 
 - name: Copying the {{COMPONENT}} proxy file
   ansible.builtin.copy:
