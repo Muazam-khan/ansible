@@ -5,3 +5,9 @@
   ansible.builtin.package:
     name: nodejs
     state: present 
+
+- name: Creating {{APPUSER}} account
+  ansible.builtin.user:
+    name: "{{APPUSER}}" # we need to enclose appuser within quotes because we start with this var name here
+    
+  
