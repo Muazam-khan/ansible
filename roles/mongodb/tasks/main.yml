@@ -2,4 +2,13 @@
   ansible.builtin.copy:
     src: mongo.repo # Location of the file on the machine where you're running this script
     dest: /etc/yum.repos.d/mongodb.repo    # 
-    remote_src: yes 
+    
+- name: Installing {{COMPONENT}} Package
+  ansible.builtin.package:
+    name: mongodb-org
+    state: present 
+
+- name: Starting service {{COMPONENT}}
+  ansible.builtin.service:
+    name: mongodb-org
+    state: started       
