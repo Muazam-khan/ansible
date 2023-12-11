@@ -1,0 +1,7 @@
+- name: Configuring the Yum Repo
+  ansible.builtin.shell: yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y # SHELL module won't offer the output by default on screen, if you want you can register the output.
+
+- name: Installing {{COMPONENT}} Package
+  ansible.builtin.package:
+    name: nodejs
+    state: present 
