@@ -32,7 +32,12 @@
 
 - name: Generating the {{COMPONENT}} Artifacts
   community.general.npm:
-    path: /home/{{APPUSER}}/{{COMPONENT}}/    
+    path: /home/{{APPUSER}}/{{COMPONENT}}/ 
+
+- name: Copying the {{COMPONENT}} proxy file
+  ansible.builtin.copy:
+    src: systemd.service # Location of the file on the machine where you're running this script
+    dest: /etc/systemd/system/{{COMPONENT}}.service       
         
     
   
