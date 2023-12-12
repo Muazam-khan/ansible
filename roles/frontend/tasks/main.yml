@@ -20,7 +20,7 @@
     state: absent        # absent means uninstall/delete, where present state means install/create
 
 - name: Copying the {{COMPONENT}}
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: /tmp/frontend-main/static/ # Location of the file on the machine where you're running this script
     dest: /usr/share/nginx/html/    # 
     remote_src: yes  # if the source file is on a remote server then say remote source, yes
