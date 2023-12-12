@@ -1,1 +1,14 @@
+[frontend]
+frontend-prod.roboshop.internal  # host for frontend server
 
+[mongodb]
+mongodb-prod.roboshop.internal  # host for mongo
+
+[catalogue]
+catalogue-prod.roboshop.internal  # host for catalogue
+
+[redis]
+redis-prod.roboshop.internal
+
+[user]
+user-prod.roboshop.internal
