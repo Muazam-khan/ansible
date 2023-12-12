@@ -6,3 +6,6 @@ mongodb-dev.roboshop.internal  # host for mongo
 
 [catalogue]
 catalogue-dev.roboshop.internal  # host for catalogue
+
+[redis]
+redis-dev.roboshop.internal
