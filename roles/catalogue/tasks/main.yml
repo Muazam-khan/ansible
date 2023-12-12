@@ -37,7 +37,14 @@
 - name: Copying the {{COMPONENT}} systemd file
   ansible.builtin.template:
     src: systemd.service # Location of the file on the machine where you're running this script
-    dest: /etc/systemd/system/{{COMPONENT}}.service       
+    dest: /etc/systemd/system/{{COMPONENT}}.service 
+
+- name: Restarting the {{COMPONENT}} Service
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: restarted
+    enabled: yes
+    daemon_reload: yes           
         
     
   
