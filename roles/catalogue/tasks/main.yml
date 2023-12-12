@@ -34,8 +34,8 @@
   community.general.npm:
     path: /home/{{APPUSER}}/{{COMPONENT}}/ 
 
-- name: Copying the {{COMPONENT}} proxy file
-  ansible.builtin.copy:
+- name: Copying the {{COMPONENT}} systemd file
+  ansible.builtin.template:
     src: systemd.service # Location of the file on the machine where you're running this script
     dest: /etc/systemd/system/{{COMPONENT}}.service       
         
