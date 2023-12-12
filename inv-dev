@@ -9,3 +9,6 @@ catalogue-dev.roboshop.internal  # host for catalogue
 
 [redis]
 redis-dev.roboshop.internal
+
+[user]
+user-dev.roboshop.internal
