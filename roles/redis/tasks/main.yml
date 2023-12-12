@@ -1,0 +1,32 @@
+- name: Configuring the {{COMPONENT}} Repo
+  ansible.builtin.copy:
+    src: redis.repo # Location of the file on the machine where you're running this script
+    dest: /etc/yum.repos.d/redis.repo    # 
+    
+- name: Installing {{COMPONENT}} Package
+  ansible.builtin.package:
+    name: redis-6.2.13
+    state: present 
+
+- name: Enabling the {{COMPONENT}} visibility
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1' # value to be replaced
+    replace: '0.0.0.0' # new value which should be in place of old value
+
+- name: Enabling the {{COMPONENT}} visibility
+  ansible.builtin.replace:
+    path: /etc/redis/redis.conf
+    regexp: '127.0.0.1' # value to be replaced
+    replace: '0.0.0.0'    
+
+- name: Starting service {{COMPONENT}}
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: started # since it is a DB so we just start, dont just restart
+    enabled: yes
+    daemon-reload: yes  
+
+
+
+            
