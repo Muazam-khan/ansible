@@ -1,6 +1,7 @@
-[mongodb-org-4.2]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
-gpgcheck=1
+[remi]
+name=Remi's RPM repository for Enterprise Linux 7 - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/7/remi/$basearch/
+#mirrorlist=https://rpms.remirepo.net/enterprise/7/remi/httpsmirror
+mirrorlist=http://cdn.remirepo.net/enterprise/7/remi/mirror
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc
+gpgcheck=0
