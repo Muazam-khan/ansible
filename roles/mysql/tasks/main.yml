@@ -46,6 +46,17 @@
     dest: /tmp
     remote_src: yes
 
+- name: Injecting the Schema {{COMPONENT}}
+  community.mysql.mysql_db:
+    login_user: root
+    login_password: "{{MYSQL_PSW}}"
+    target: /tmp/{{COMPONENT}}-main/shipping.sql
+
+- name: Configuring the server name 
+  ansible.builtin.shell: set-hostname {{COMPONENT}}     
+     
+     
+
 
 
                                    
