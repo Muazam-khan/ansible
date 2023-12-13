@@ -26,4 +26,19 @@
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
-    line: gid = {{USERINFO.group}}           
+    line: gid = {{USERINFO.group}} 
+
+- name: Installing the app dependencies
+  ansible.builtin.pip:
+    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
+    executable: pip3.6  # need to add this as pip goes by python 2, we need 3.6  
+
+- name: Configuring and starting the service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_svc  
+
+- name: Configuring the Hostname
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: set_hostname                 
