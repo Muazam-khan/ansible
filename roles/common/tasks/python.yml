@@ -1,0 +1,19 @@
+- name: Installing Python
+  ansible.builtin.package:
+    name: 
+      - python36
+      - gcc
+      - python3-devel
+    state: present
+
+- name: Creating the user account
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user    
+
+- name: Downloading the artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_and_extract
+    
+        
