@@ -4,18 +4,24 @@
 - name: Configuring {{COMPONENT}} repo
   ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
 
+- name: Installing {{COMPONENT}} Package
+  ansible.builtin.package:
+    name: rabbitmq-server
+    state: present  
+
+- name: Starting service {{COMPONENT}}
+  ansible.builtin.systemd:
+    name: rabbitmq
+    state: started # since it is a DB so we just start, dont just restart
+    enabled: yes 
+
 - name: Enabling the {{COMPONENT}} visibility
   ansible.builtin.replace:
     path: /etc/mongod.conf
     regexp: '127.0.0.1' # value to be replaced
     replace: '0.0.0.0' # new value which should be in place of old value
 
-- name: Starting service {{COMPONENT}}
-  ansible.builtin.systemd:
-    name: mongod
-    state: started # since it is a DB so we just start, dont just restart
-    enabled: yes
-    daemon-reload: yes  
+
 
 - name: Download and Extract {{COMPONENT}} Schema
   ansible.builtin.unarchive:
