@@ -22,6 +22,7 @@
 - name: Printing the password file
   debug:
     msg: "{{psw_log}}"
-- name: Extracting the password from log file
-  ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
-    DEFAULT_PASSWORD: "{{ psw_log['content'] }}"
+
+#- name: Extracting the password from log file
+ # ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
+  #  DEFAULT_PASSWORD: "{{ psw_log['content'] }}"
