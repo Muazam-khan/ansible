@@ -27,7 +27,7 @@
 - name: Generating the {{COMPONENT}} Artifacts
   ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
   args:
-  chdir: /home/{{APPUSER}}/{{COMPONENT}}/ 
+    chdir: /home/{{APPUSER}}/{{COMPONENT}}/ # need to specifically mention where mvn clean pckg to install
 
 - name: Copying the {{COMPONENT}} systemd file
   ansible.builtin.template:
