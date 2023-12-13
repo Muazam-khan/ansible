@@ -8,7 +8,7 @@
     name: 
        - mysql-community-server
        - PyMySQL
-       - MySQL-python      
+       - MySQLdb-python2.x      
     state: present 
 
 - name: Starting service {{COMPONENT}}
