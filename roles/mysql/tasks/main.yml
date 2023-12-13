@@ -19,10 +19,10 @@
     src: /var/log/mysqld.log
   register: psw_log 
 
-- name: Printing the password file
-  debug:
-    msg: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join() | split(' ') | last}}" # | b64decode is to encrypt a file or key, .* means include everything in between
-
-#- name: Extracting the password from log file
- # ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
-  #  DEFAULT_PASSWORD: "{{ psw_log['content'] }}"
+#- name: Printing the password file
+ # debug:
+  #  msg: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join() | split(' ') | last}}" # | b64decode is to encrypt a file or key, .* means include everything in between
+                                                                   # join will join the entire string and then split command will split the entire string based on space and last will output last element in string
+- name: Extracting the password from log file
+  ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
+    DEFAULT_PASSWORD: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join() | split(' ') | last}}"
