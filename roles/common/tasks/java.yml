@@ -6,6 +6,10 @@
     name: common
     tasks_from: create_user  # we need to enclose appuser within quotes because we start with this var name here
 
+- name: Downloading the artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_and_extract
 
 
 - name: Generating the {{COMPONENT}} Artifacts
@@ -13,14 +17,7 @@
   args:
     chdir: /home/{{APPUSER}}/{{COMPONENT}}/ # need to specifically mention where mvn clean pckg to install
 
-- name: Copying the {{COMPONENT}} systemd file
-  ansible.builtin.template:
-    src: systemd.service # Location of the file on the machine where you're running this script
-    dest: /etc/systemd/system/{{COMPONENT}}.service 
-
-- name: Restarting the {{COMPONENT}} Service
-  ansible.builtin.systemd:
-    name: "{{COMPONENT}}"
-    state: restarted
-    enabled: yes
-    daemon_reload: yes   
+- name: Configuring and starting the service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_svc   
