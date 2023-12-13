@@ -12,4 +12,16 @@
   ansible.builtin.systemd:
     name: mysqld
     state: started # since it is a DB so we just start, dont just restart
-    enabled: yes   
+    enabled: yes  
+
+- name: Extract the mysql log file
+  ansible.builtin.slurp:
+    src: /var/log/mysqld.log
+    register: psw_log 
+
+- name: Printing the password file
+  debug:
+    msg: "{{psw_log}}"
+- name: Extracting the password from log file
+  ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
+    DEFAULT_PASSWORD: "{{ psw_log['content'] }}"
