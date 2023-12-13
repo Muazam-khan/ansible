@@ -1,9 +1,10 @@
 - name: Installing Maven
   ansible.builtin.shell: curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/maven-java11/install.sh | bash || true
 
-- name: Creating {{APPUSER}} account
-  ansible.builtin.user:
-    name: "{{APPUSER}}" # we need to enclose appuser within quotes because we start with this var name here
+- name: Creating the user account
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user  # we need to enclose appuser within quotes because we start with this var name here
 
 - name: Download and Extract {{COMPONENT}} Schema
   ansible.builtin.unarchive:
