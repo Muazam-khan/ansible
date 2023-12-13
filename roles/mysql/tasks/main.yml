@@ -5,8 +5,9 @@
     
 - name: Installing {{COMPONENT}} Package
   ansible.builtin.package:
-    name: mysql-community-server
-     # - PyMySQL
+    name: 
+       - mysql-community-server
+       - PyMySQL
      # - MySQL-python      
     state: present 
 
