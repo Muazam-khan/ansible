@@ -18,15 +18,22 @@
   ansible.builtin.slurp:
     src: /var/log/mysqld.log
   register: psw_log 
+# if any of the task in the block fails, task in the rescue will be executed, This is exception handling in ansible
+- name: Verifying the password
+  block:
+    - name: Get MySQL version with non-default credentials
+      community.mysql.mysql_info:  
+        login_user: root
+        login_password: RoboShop@1
+        filter: version
+  rescue:          # if above block fails which means password is not roboshop then rescue ops will be exec                                              
+    - name: Extracting the password from log file  # | b64decode is to encrypt a file or key, .* means include everything in between
+      ansible.builtin.set_fact:   # this module helps querying the info available in a register, whereener u extracted value in a reg using var
+        DEFAULT_PASSWORD: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join() | split(' ') | last}}" # join command with no space will join the entire string
 
-#- name: Printing the password file
- # debug:
-  #  msg: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join() | split(' ') | last}}" # | b64decode is to encrypt a file or key, .* means include everything in between
-                                                                   # join will join the entire string and then split command will split the entire string based on space and last will output last element in string
-- name: Extracting the password from log file
-  ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
-    DEFAULT_PASSWORD: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join() | split(' ') | last}}"
+    - name: Changing default root password  # split command will split the entire string based on space and last cmd will output last element in string
+      ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';"| mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}" # never use dollar with var in ansible
 
-- name: Changing default root password
-  ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';"| mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}" # never use dollar with var in ansible
 
+
+                                   
