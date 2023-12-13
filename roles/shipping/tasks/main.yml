@@ -1,11 +1,5 @@
-- name: Configuring the Yum Repo
-  ansible.builtin.shell: yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y # SHELL module won't offer the output by default on screen, if you want you can register the output.
-  ignore_errors: true # we use it because once installed, on second run nodejs will give error
-
-- name: Installing {{COMPONENT}} Package
-  ansible.builtin.package:
-    name: maven
-    state: present 
+- name: Installing Maven
+  ansible.builtin.shell: curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/maven-java11/install.sh | bash
 
 - name: Creating {{APPUSER}} account
   ansible.builtin.user:
