@@ -37,8 +37,8 @@
     - name: Changing default root password  # split command will split the entire string based on space and last cmd will output last element in string
       ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';"| mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}" # never use dollar with var in ansible
 
-- name: Uninstalling password validate plugins
-  ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1
+    - name: Uninstalling password validate plugins
+      ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1
 
 
 
