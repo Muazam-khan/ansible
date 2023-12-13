@@ -21,3 +21,8 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: config_svc   
+
+- name: Configuring the Hostname
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: set_hostname     
