@@ -21,7 +21,7 @@
 
 - name: Printing the password file
   debug:
-    msg: "{{psw_log}}"
+    msg: "{{psw_log['content'] | b64decode}}" # | b64decode is to encrypt a file or key
 
 #- name: Extracting the password from log file
  # ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
