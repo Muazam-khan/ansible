@@ -48,8 +48,8 @@
 
 - name: Injecting the Schema {{COMPONENT}}
   community.mysql.mysql_db:
-    state: import
-    name: all
+    #state: import
+    #name: all
     login_user: root
     login_password: "{{MYSQL_PSW}}"
     target: /tmp/{{COMPONENT}}-main/shipping.sql
