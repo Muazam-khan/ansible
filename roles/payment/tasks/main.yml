@@ -1,0 +1,7 @@
+- name: Configuring the {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: java      
+        
+    
+  
