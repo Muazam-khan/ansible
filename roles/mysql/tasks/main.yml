@@ -27,7 +27,7 @@
     - name: Get MySQL version with non-default credentials
       community.mysql.mysql_info:  
         login_user: root
-        login_password: RoboShop@1
+        login_password: "{{MYSQL_PSW}}"
         filter: version
   rescue:          # if above block fails which means password is not roboshop then rescue ops will be exec                                              
     - name: Extracting the password from log file  # | b64decode is to encrypt a file or key, .* means include everything in between
