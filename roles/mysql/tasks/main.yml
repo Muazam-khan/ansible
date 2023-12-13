@@ -21,7 +21,7 @@
 
 - name: Printing the password file
   debug:
-    msg: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | split(' ') | last}}" # | b64decode is to encrypt a file or key, .* means include everything in between
+    msg: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join() | split(' ') | last}}" # | b64decode is to encrypt a file or key, .* means include everything in between
 
 #- name: Extracting the password from log file
  # ansible.builtin.set_fact: # this mod helps querying the info available in a register, whereener u extracted value in a reg using var
