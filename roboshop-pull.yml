@@ -1,0 +1,6 @@
+# prerequisite : The machine that you are running shld have ansible installed
+- name: Configuring roboshop project
+  become: true
+  hosts: localhost
+  roles:
+    - roles: "{{COMPONENT}}"
