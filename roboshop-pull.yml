@@ -3,4 +3,4 @@
   become: true
   hosts: localhost
   roles:
-    - roles: "{{COMPONENT}}"
+    - role: "{{COMPONENT}}"
