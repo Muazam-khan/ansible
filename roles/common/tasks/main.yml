@@ -1,0 +1,3 @@
+- name: Demonstrating Role Dependency
+  debug:
+      msg: commonRole

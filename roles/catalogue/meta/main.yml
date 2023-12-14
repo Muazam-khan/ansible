@@ -1,0 +1,2 @@
+dependencies:
+  - role: common # it means catalogue is dependent on mongo, ist mongo will be called
