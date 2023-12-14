@@ -1,4 +1,4 @@
-    name: Demo on Vault
+  - name: Demo on Vault
     hosts: localhost
     vars:
       PASS: !vault |
