@@ -1,4 +1,4 @@
-# prerequisite : The machine that you are running shld have ansible installed
+# prerequisite : The machine that you are running pull should have ansible installed
 - name: Configuring roboshop project
   become: true
   hosts: localhost
